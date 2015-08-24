@@ -17,13 +17,13 @@ PRODUCT_RELEASE_NAME := osprey
 
 $(call inherit-product, device/motorola/osprey/full_osprey.mk)
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit some common SlimROM stuff.
+$(call inherit-product, vendor/slim/config/common_full_phone.mk)
 
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := osprey
-PRODUCT_NAME := cm_osprey
+PRODUCT_NAME := slim_osprey
 PRODUCT_BRAND := Motorola
 PRODUCT_MODEL := MotoG3
 PRODUCT_MANUFACTURER := Motorola
