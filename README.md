@@ -1,4 +1,4 @@
-#CM12.1 tree for Moto G (2015)
+#SlimLP tree for Moto G (2015)
 * Based off https://github.com/Motorola-CyanogenMod/android_device_motorola_surnia
 
 ##Dependencies:
@@ -10,9 +10,7 @@ You also need the repo tool for cloning Android source trees.
 
 ##Set up and get the repo:
 ````
-mkdir ~/cm12.1-tree
-cd ~/cm12.1-tree
-repo init -u git://github.com/CyanogenMod/android.git -b cm-12.1
+repo init -u git://github.com/SlimRoms/platform_manifest.git -b lp5.1
 mkdir -p .repo/local_manifests
 ````
 
