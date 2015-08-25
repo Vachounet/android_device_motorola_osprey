@@ -20,7 +20,7 @@ Create a file .repo/local_manifests/osprey.xml and paste this in:
 ````
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-    <project name="MotoG3/android_device_motorola_osprey" path="device/motorola/osprey" remote="github" revision="cm-12.1" />
+    <project name="Vachounet/android_device_motorola_osprey" path="device/motorola/osprey" remote="github" revision="slim-5.1" />
     <project name="MotoG3/android_vendor_motorola_osprey" path="vendor/motorola/osprey" remote="github" revision="cm-12.1" />
     <project name="MotoG3/android_kernel_motorola_msm8916" path="kernel/motorola/msm8916" remote="github" revision="cm-12.1" />
     <project name="CyanogenMod/android_external_mm-dash" path="external/mm-dash" remote="github" />
