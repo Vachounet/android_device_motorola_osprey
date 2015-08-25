@@ -15,17 +15,19 @@
 # Release name
 PRODUCT_RELEASE_NAME := osprey
 
-$(call inherit-product, device/motorola/osprey/full_osprey.mk)
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
-
+# Inherit from device.mk
+$(call inherit-product, device/motorola/osprey/device.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := osprey
-PRODUCT_NAME := cm_osprey
+PRODUCT_NAME := aosp_osprey
 PRODUCT_BRAND := Motorola
-PRODUCT_MODEL := MotoG3
+PRODUCT_MODEL := Moto G3
 PRODUCT_MANUFACTURER := Motorola
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+
+$(call inherit-product-if-exists, vendor/motorola/osprey/osprey-vendor.mk)
