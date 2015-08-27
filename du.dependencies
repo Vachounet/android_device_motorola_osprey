@@ -20,6 +20,11 @@
   {
     "repository": "android_device_qcom_common",
     "target_path": "device/qcom/common"
-  }
+  },{
+    "remote":      "github",
+    "repository":  "CyanogenMod/android_external_bson",
+    "target_path": "external/bson",
+    "revision":    "cm-12.1"
+   }
 ]
 
