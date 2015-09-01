@@ -908,9 +908,9 @@ on moto-charger
     write /proc/sys/kernel/sched_ravg_hist_size 3
 
     # HMP Task packing settings for 8916
-    write /proc/sys/kernel/sched_small_task 50
-    write /proc/sys/kernel/sched_mostly_idle_load 50
-    write /proc/sys/kernel/sched_mostly_idle_nr_run 10
+    write /proc/sys/kernel/sched_small_task 20
+    write /proc/sys/kernel/sched_mostly_idle_load 30
+    write /proc/sys/kernel/sched_mostly_idle_nr_run 3
 
     # disable thermal core_control to update scaling_min_freq
     write /sys/module/msm_thermal/core_control/enabled 0
@@ -944,9 +944,9 @@ on property:sys.boot_completed=1
      write /proc/sys/kernel/sched_ravg_hist_size 3
 
      # HMP Task packing settings for 8916
-     write /proc/sys/kernel/sched_small_task 50
-     write /proc/sys/kernel/sched_mostly_idle_load 50
-     write /proc/sys/kernel/sched_mostly_idle_nr_run 10
+     write /proc/sys/kernel/sched_small_task 20
+     write /proc/sys/kernel/sched_mostly_idle_load 30
+     write /proc/sys/kernel/sched_mostly_idle_nr_run 3
 
      # disable thermal core_control to update scaling_min_freq
      write /sys/module/msm_thermal/core_control/enabled 0
@@ -954,13 +954,27 @@ on property:sys.boot_completed=1
      write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 200000
      write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 200000
      write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 200000
+	 
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "impulse"
+    write /sys/devices/system/cpu/cpufreq/impulse/above_hispeed_delay "20000 800000:40000 1000000:20000"
+    write /sys/devices/system/cpu/cpufreq/impulse/go_hispeed_load 95
+    write /sys/devices/system/cpu/cpufreq/impulse/hispeed_freq 998400
+    write /sys/devices/system/cpu/cpufreq/impulse/powersave_bias 1
+    write /sys/devices/system/cpu/cpufreq/impulse/io_is_busy 1
+    write /sys/devices/system/cpu/cpufreq/impulse/target_loads "85 700000:90 900000:70"
+    write /sys/devices/system/cpu/cpufreq/impulse/min_sample_time 40000
+    write /sys/devices/system/cpu/cpufreq/impulse/timer_rate 30000
+    write /sys/devices/system/cpu/cpufreq/impulse/max_freq_hysteresis 100000
+    write /sys/devices/system/cpu/cpufreq/impulse/timer_slack 30000
+	 
      # enable thermal core_control now
      write /sys/module/msm_thermal/core_control/enabled 1
 
     write /sys/module/cpu_boost/parameters/boost_ms 20
-    write /sys/module/cpu_boost/parameters/sync_threshold 998400
-    write /sys/module/cpu_boost/parameters/input_boost_freq 1094400
-    write /sys/module/cpu_boost/parameters/input_boost_ms 40
+    write /sys/module/cpu_boost/parameters/sync_threshold 1152000
+    write /sys/module/cpu_boost/parameters/input_boost_freq 998400
+    write /sys/module/cpu_boost/parameters/input_boost_ms 500
+    write /sys/module/cpu_boost/parameters/load_based_syncs 1
     start batt_health
 
     setprop sys.perf.profile 1
