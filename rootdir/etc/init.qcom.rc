@@ -977,9 +977,19 @@ on property:sys.boot_completed=1
     write /sys/module/cpu_boost/parameters/load_based_syncs 1
     start batt_health
 	
+	# Tune LMK with values we love
+	write /sys/module/lowmemorykiller/parameters/minfree "1536,2048,4096,16384,28672,32768"
+	write /sys/module/lowmemorykiller/parameters/cost 32
+	
 	# Adaptive LMK
 	write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
 	write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 53059
+	
+	# Tweak background writeout
+	write /proc/sys/vm/dirty_expire_centisecs 200
+	write /proc/sys/vm/dirty_background_ratio 20
+	write /proc/sys/vm/dirty_ratio 40
+	write /proc/sys/vm/swappiness	0
 
     setprop sys.perf.profile 1
 
