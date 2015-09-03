@@ -1,7 +1,16 @@
+# Art
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat-flags=--no-watch-dog
+
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
-    audio.offload.24bit.enable=false \
+    audio.offload.pcm.16bit.enable=false \
+    audio.offload.pcm.24bit.enable=true \
     audio.offload.buffer.size.kb=64 \
+    av.offload.enable=true \
+	tunnel.audio.encode=false \
+	audio.offload.min.duration.secs=30 \
+    av.streaming.offload.enable=true \
     audio.offload.gapless.enabled=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
